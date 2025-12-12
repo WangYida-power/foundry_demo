@@ -1,0 +1,20 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.19" # 固定编译器版本，避免意外错误
+
+# 测试配置
+[fuzz]
+runs = 256 # Fuzz测试次数
+
+# 本地开发网络配置
+[rpc_endpoints]
+anvil = "http://localhost:8545"
+sepolia = "${SEPOLIA_RPC_URL}" # 可从环境变量读取
+
+# 部署账户配置（敏感信息勿提交git！）
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+## 创建 .vscode/tasks.json，可以将常用命令（如 forge build, forge test）绑定到快捷键，实现一键编译测试，就像在IDE中运行Java程序一样。
