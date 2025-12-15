@@ -13,18 +13,19 @@ contract SimpleStorageDemo {
     int256 ia = -5;
     address myAddress = 0xcf36Acfed9D31238e65091Dd768BC79Ee9Ddb1D4;
     bytes32 bbb = "cat";
-    uint256 public favoriteNumber;//默认赋值为0 加上public相当于一个view的getter方法
+    uint256 public favoriteNumber; //默认赋值为0 加上public相当于一个view的getter方法
+
     //public private external internal
     function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
         retrieve();
     }
 
-    function retrieve() public view returns (uint256){
+    function retrieve() public view returns (uint256) {
         return favoriteNumber;
     }
     //view意味着只会读取合约的状态 pure不允许读取区块链数据 在这两个函数中不可修改任何状态 调取view pure不需要支付gas
-//0xd9145CCE52D386f254917e481eB44e9943F39138
+    //0xd9145CCE52D386f254917e481eB44e9943F39138
 
     People public person = People({favoriteNumber: 2, name: "wangyd"});
     People[] public people;
@@ -34,5 +35,4 @@ contract SimpleStorageDemo {
         uint256 favoriteNumber;
         string name;
     }
-
 }

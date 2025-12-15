@@ -23,7 +23,7 @@ contract SimpleBank {
 
         // 重要：在更新状态之前先转账，遵循“检查-生效-交互”模式防重入攻击
         _balances[msg.sender] -= amount;
-        (bool success, ) = msg.sender.call{value: amount}("");
+        (bool success,) = msg.sender.call{value: amount}("");
         require(success, "Withdrawal failed");
 
         emit Withdrawn(msg.sender, amount);

@@ -11,7 +11,7 @@ pragma solidity >=0.8.7 <0.9.0;
 contract PersonDemo {
     uint256 public favoriteNumber;
     // People public person = People({number: 2, name: "wangyd"});
-    People[] public people;//自动分配为一个存储变量
+    People[] public people; //自动分配为一个存储变量
     uint256[] public favoriteNumberList;
 
     mapping(string => uint256) public nameToFavoriteNumber;
@@ -26,7 +26,7 @@ contract PersonDemo {
         retrieve();
     }
 
-    function retrieve() public view returns (uint256){
+    function retrieve() public view returns (uint256) {
         return favoriteNumber;
     }
 
@@ -39,5 +39,4 @@ contract PersonDemo {
         // people.push(People(_number, _name));
         nameToFavoriteNumber[_name] = _number;
     }
-
 }

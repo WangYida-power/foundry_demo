@@ -47,7 +47,9 @@ contract SimpleBankTest is Test {
         // a) 验证用户在合约内的余额正确减少了5 ether
         vm.prank(user1);
         uint256 finalBankBalance = bank.getBalance();
-        assertEq(finalBankBalance, initialBankBalance - 5 ether, "User's bank balance should decrease by exactly 5 ether");
+        assertEq(
+            finalBankBalance, initialBankBalance - 5 ether, "User's bank balance should decrease by exactly 5 ether"
+        );
 
         // b) 验证用户收到的原生ETH非常接近5 ether（允许极小的Gas误差）
         uint256 ethReceived = user1.balance - initialEthBalance;
